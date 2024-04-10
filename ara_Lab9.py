@@ -7,9 +7,14 @@ def encode_password(password):
         encoded_password += str(encoded_digit)
     return encoded_password
 
+def decode_password(encoded_password):
+    decoded_password = ""
+    for digit in encoded_password:
+        digit = int(digit) - 3
+        decoded_password = f"{decoded_password}{digit}"
+    return decoded_password
 
 def main():
-    encoded_password = None
 
     while True:
         print("Menu\n"
@@ -25,16 +30,10 @@ def main():
             if len(password) != 8 or not password.isdigit():
                 print("Invalid password format. Please enter 8 digits.")
                 continue
-            encoded_password = encode_password(password)
             print("Your password has been encoded and stored!")
 
         elif option == '2':
-            if encoded_password is None:
-                print("No encoded password available. Please encode a password first.")
-                continue
-            decoded_password = decode_password(encoded_password)
-            print("The encoded password is {}, and the original password is {}.".format(encoded_password,
-                                                                                        decoded_password))
+            print(f"The encoded password is {encode_password(password)}, and the original password is {decode_password(encode_password(password))}.")
 
         elif option == '3':
             break
