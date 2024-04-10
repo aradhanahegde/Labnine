@@ -37,13 +37,8 @@ def main():
                                                                                         decoded_password))
 
         elif option == '3':
-            print("Goodbye!")
             break
 
-
-        elif option == '3':
-            print("Goodbye!")
-            break
 
         else:
             print("Invalid option. Please choose a valid option.")
@@ -51,4 +46,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
